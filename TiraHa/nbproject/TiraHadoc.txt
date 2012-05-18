@@ -1,27 +1,29 @@
-Tietorakenteiden harjoitustyö 
-– Primin ja Kruskalin algoritmien vertailu 
+Tietorakenteiden harjoitustyï¿½ 
+ï¿½ Primin ja Kruskalin algoritmien vertailu 
 -  Lauri Suomalainen
 
 Perusajatus
 
-Ohjelmassa verkko esitetään vierusmatriisina. Käyttäjä valitsee solmujen määrän ja määrittelee sitten solmujen väliset kaaret ja niiden painot antamalla numeroarvoja matriisiin (tai mahdollisesti antamalla satunnaisgeneraattorin tehdä työn puolestaan).* Tämän jälkeen ohjelma suorittaa verkolle Kruskalin ja Primin algoritmit mitaten näihin käytetyt ajat ja tulostaen tuloksena syntyneen virittävän puun.
+Ohjelmassa verkko esitetï¿½ï¿½n vierusmatriisina. Kï¿½yttï¿½jï¿½ valitsee solmujen mï¿½ï¿½rï¿½n ja mï¿½ï¿½rittelee sitten solmujen vï¿½liset kaaret ja niiden painot antamalla numeroarvoja matriisiin (tai mahdollisesti antamalla satunnaisgeneraattorin tehdï¿½ tyï¿½n puolestaan).* Tï¿½mï¿½n jï¿½lkeen ohjelma suorittaa verkolle Kruskalin ja Primin algoritmit mitaten nï¿½ihin kï¿½ytetyt ajat ja tulostaen tuloksena syntyneen virittï¿½vï¿½n puun.
 
 Vaihe 1 (Pakollinen):
 1. Algoritmit toimivat oikein Javan valmiilla kalustolla.
 2. Algoritmit tuottavat oikeat tulokset kovakoodatuista verkoista.
-3. Ei varsinaista käyttöliittymää.
+3. Ei varsinaista kï¿½yttï¿½liittymï¿½ï¿½.
 
 Vaihe 2 (Pakollinen):
 1. Algoritmit toimivat oikein itse ohjelmoiduilla tietorakenteilla
-2. Algoritmit tuottava oikeat tulokset käyttäjän antamasta verkosta.
-3. Käyttöliittymä komentorivillä.
+2. Algoritmit tuottava oikeat tulokset kï¿½yttï¿½jï¿½n antamasta verkosta.
+3. Kï¿½yttï¿½liittymï¿½ komentorivillï¿½.
 Vaihe 3 (Ajan salliessa):
 
 	1.-2. Samat kuin Vaihe 2.
-3. Käyttöliittymä graafinen ja käyttäjäystävällinen
+3. Kï¿½yttï¿½liittymï¿½ graafinen ja kï¿½yttï¿½jï¿½ystï¿½vï¿½llinen
 4. Satunnaisgeneraattori toimii.
 5. Ohjelma tulostaa algoritmin vaiheet
 6. Vaiheita voi selata.
 Kaikkiin vaiheisiin kuuluu asianmukainen dokumentointi.
+Aikavaatimus primillÃ¤ tulee olemaan |E| log |V| ja Kruskalilla |E| log |E| + |V|^2
+LÃ¤hteet: http://www.cs.helsinki.fi/u/floreen/tira2012/tira.pdf
 
-*Koska verkot eivät ole suunnattuja, riittää ((n*n)/2 – n jossa n on solmujen määrä) kaaren arvon antaminen, sillä jokaisen kaaren arvo on sama riippumatta siitä, kumpaan suuntaan kuljetaan ja lisäksi näiden algoritmien tapauksessa solmun ollessa itsensä vierussolmu tapaus on triviaali, sillä algoritmi ei ikinä käytä kyseistä kaarta.
+*Koska verkot eivï¿½t ole suunnattuja, riittï¿½ï¿½ ((n*n)/2 ï¿½ n jossa n on solmujen mï¿½ï¿½rï¿½) kaaren arvon antaminen, sillï¿½ jokaisen kaaren arvo on sama riippumatta siitï¿½, kumpaan suuntaan kuljetaan ja lisï¿½ksi nï¿½iden algoritmien tapauksessa solmun ollessa itsensï¿½ vierussolmu tapaus on triviaali, sillï¿½ algoritmi ei ikinï¿½ kï¿½ytï¿½ kyseistï¿½ kaarta.
