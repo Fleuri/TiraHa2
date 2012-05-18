@@ -1,0 +1,27 @@
+Tietorakenteiden harjoitustyö 
+– Primin ja Kruskalin algoritmien vertailu 
+-  Lauri Suomalainen
+
+Perusajatus
+
+Ohjelmassa verkko esitetään vierusmatriisina. Käyttäjä valitsee solmujen määrän ja määrittelee sitten solmujen väliset kaaret ja niiden painot antamalla numeroarvoja matriisiin (tai mahdollisesti antamalla satunnaisgeneraattorin tehdä työn puolestaan).* Tämän jälkeen ohjelma suorittaa verkolle Kruskalin ja Primin algoritmit mitaten näihin käytetyt ajat ja tulostaen tuloksena syntyneen virittävän puun.
+
+Vaihe 1 (Pakollinen):
+1. Algoritmit toimivat oikein Javan valmiilla kalustolla.
+2. Algoritmit tuottavat oikeat tulokset kovakoodatuista verkoista.
+3. Ei varsinaista käyttöliittymää.
+
+Vaihe 2 (Pakollinen):
+1. Algoritmit toimivat oikein itse ohjelmoiduilla tietorakenteilla
+2. Algoritmit tuottava oikeat tulokset käyttäjän antamasta verkosta.
+3. Käyttöliittymä komentorivillä.
+Vaihe 3 (Ajan salliessa):
+
+	1.-2. Samat kuin Vaihe 2.
+3. Käyttöliittymä graafinen ja käyttäjäystävällinen
+4. Satunnaisgeneraattori toimii.
+5. Ohjelma tulostaa algoritmin vaiheet
+6. Vaiheita voi selata.
+Kaikkiin vaiheisiin kuuluu asianmukainen dokumentointi.
+
+*Koska verkot eivät ole suunnattuja, riittää ((n*n)/2 – n jossa n on solmujen määrä) kaaren arvon antaminen, sillä jokaisen kaaren arvo on sama riippumatta siitä, kumpaan suuntaan kuljetaan ja lisäksi näiden algoritmien tapauksessa solmun ollessa itsensä vierussolmu tapaus on triviaali, sillä algoritmi ei ikinä käytä kyseistä kaarta.
