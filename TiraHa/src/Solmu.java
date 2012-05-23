@@ -10,10 +10,20 @@
 import java.util.HashMap;
 public class Solmu {
     
-  public HashMap <Integer, Solmu> vieruslista;
+  public HashMap <Solmu, Integer> vieruslista;
+  private String nimi;
+  
+  public Solmu(String nimi) {
+      vieruslista = new HashMap<>();
+      this.nimi = nimi;
+  }
     
     public void lisaavierus(int etaisyys, Solmu solmu) {
-        vieruslista.put(etaisyys, solmu);
+        vieruslista.put(solmu, etaisyys);
+    }
+
+    public String tulostanimi() {
+        return nimi;
     }
     
 }
