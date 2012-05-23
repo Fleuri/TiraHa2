@@ -34,6 +34,7 @@ public class PrimKruskalMain {
         System.out.println("");
         System.out.print("Henkilöiden ikien absoluuttiset erotukset");
         System.out.println("");
+        System.out.println("");
         
         Solmu lauri = new Solmu("Lauri");
         Solmu miia = new Solmu ("Miia");

@@ -56,4 +56,7 @@ public class Prim {
         }
         System.out.println("");
     }
+  /*  public int[][] primAlgoritmi(Solmu[] verkko) {
+        return 
+    } */
 }
