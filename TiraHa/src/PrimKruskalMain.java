@@ -5,7 +5,7 @@
 
 /**
  *
- * @author Acer
+ * @author Lauri Suomalainen
  */
 public class PrimKruskalMain {
 
