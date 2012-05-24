@@ -1,3 +1,7 @@
+
+import java.util.HashMap;
+import java.util.PriorityQueue;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -56,7 +60,22 @@ public class Prim {
         }
         System.out.println("");
     }
-  /*  public int[][] primAlgoritmi(Solmu[] verkko) {
+   public int[][] primAlgoritmi(Solmu[] verkko) {
+       Solmu[] loppuverkko = new Solmu[verkko.length];
+       Solmu[] verkko2 = verkko.clone();
+       PriorityQueue<Solmu> heap = new PriorityQueue();
+       for (int i = 0; i < verkko2.length; i++) {
+           verkko2[i].nollaaParent();
+           verkko2[i].distance = Integer.MAX_VALUE;
+       } verkko[0].distance = 0; 
+       for (int i = 0; i < verkko2.length; i++) {
+           heap.add(verkko2[i]);
+       } while (!heap.isEmpty()) {
+           Solmu u = heap.poll();
+           if (u.getParent() != null){
+               
+           }
+       }
         return 
-    } */
+    } 
 }
