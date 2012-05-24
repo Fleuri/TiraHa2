@@ -30,8 +30,11 @@ public class PrimKruskalMain {
         Solmu[] verkko = {A,B,C,D};
         Prim prim = new Prim();
         prim.tulostavierusmatriisi(verkko);
-        
+        Solmu[] verkko2 = prim.primAlgoritmi(verkko);
         System.out.println("");
+        System.out.println(verkko2);
+        
+        /*System.out.println("");
         System.out.print("Henkilöiden ikien absoluuttiset erotukset");
         System.out.println("");
         System.out.println("");
@@ -62,6 +65,6 @@ public class PrimKruskalMain {
         miikka.lisaavierus(1, miika);
         miikka.lisaavierus(1, markus);
         Solmu[] verkko2 = {lauri, miia, miika, markus, miikka};
-        prim.tulostavierusmatriisi(verkko2);
+        prim.tulostavierusmatriisi(verkko2); */
     }
 }
