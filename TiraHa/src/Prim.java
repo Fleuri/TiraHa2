@@ -8,7 +8,9 @@ import java.util.Set;
  * the editor.
  */
 /**
- * Tämä luokka on vastuussa vierusmatriisin tulostamisesta ja verkon virittämisestä.
+ * Tämä luokka on vastuussa vierusmatriisin tulostamisesta ja verkon
+ * virittämisestä.
+ *
  * @author Lauri Suomalainen
  */
 public class Prim {
@@ -16,7 +18,7 @@ public class Prim {
     int[][] vierusmatriisi;
     int[][] viritettypuu;
 
-/*
+    /*
      * Tulostaa vierusmatriisiesityksen verkosta.
      */
     public void tulostavierusmatriisi(Solmu[] verkko) {
@@ -51,13 +53,15 @@ public class Prim {
     }
 
     /**
-     * Suorittaa primin algoritmin verkolle, tallettaen tulokset solmujen primlistaan.
+     * Suorittaa primin algoritmin verkolle, tallettaen tulokset solmujen
+     * primlistaan.
+     *
      * @param verkko
      * @return
      */
     public Solmu[] primAlgoritmi(Solmu[] verkko) {
         Solmu[] verkko2 = verkko;
-        
+
         PriorityQueue<Solmu> heap = new PriorityQueue();
         for (int i = 0; i < verkko2.length; i++) {
             verkko2[i].nollaaParent();
@@ -80,7 +84,7 @@ public class Prim {
             }
         }
         for (int i = 0; i < verkko2.length; i++) {
-            verkko2[i].vieruslista.clear();
+
             if (verkko2[i].getParent() != null) {
                 verkko2[i].lisaaprim(verkko2[i].distance, verkko2[i].getParent());
                 Solmu u = verkko2[i].getParent();
@@ -89,8 +93,11 @@ public class Prim {
         }
         return verkko2;
     }
+
     /**
-     * Sama kuin tulosta vierusmatriisi, mutta käyttää primlistaa vieruslistan sijasta.
+     * Sama kuin tulosta vierusmatriisi, mutta käyttää primlistaa vieruslistan
+     * sijasta.
+     *
      * @param verkko
      */
     public void tulostaprim(Solmu[] verkko) {
@@ -124,4 +131,32 @@ public class Prim {
         System.out.println("");
     }
 
+    public Kaari[] getKaaret(Solmu[] verkko) {
+        int kaarilaskuri = 0;
+        Kaari[] kaaret = new Kaari[verkko.length * (verkko.length - 1) / 2];
+        for (int i = 0; i < verkko.length; i++) {
+            for (int k = 0; k < verkko.length; k++) {
+                if (kaaritarkistus(kaaret, verkko[i], verkko[k], kaarilaskuri)) {
+                    continue;
+                } else if (verkko[i].vieruslista.containsKey(verkko[k])) {
+                    kaaret[kaarilaskuri] = new Kaari(verkko[i], verkko[k], verkko[i].vieruslista.get(verkko[k]));
+                    kaarilaskuri++;
+
+                }
+            }
+        }
+        System.out.println("kaaret");
+        return kaaret;
+    }
+
+    private boolean kaaritarkistus(Kaari[] kaaret, Solmu a, Solmu b, int kaarilaskuri) {
+        if (a == b) {
+            return true;
+        }
+        for (int i = 0; i < kaarilaskuri; i++) {
+            if ((kaaret[i].a == a || kaaret[i].b == a) && (kaaret[i].a == b || kaaret[i].b == b)){
+                return true;
+            }
+        } return false;
+    }
 }

@@ -33,6 +33,7 @@ public class PrimKruskalMain {
         prim.primAlgoritmi(verkko);
         System.out.println("");
         prim.tulostaprim(verkko);
+        prim.getKaaret(verkko);
         
         /*System.out.println("");
         System.out.print("Henkilöiden ikien absoluuttiset erotukset");
