@@ -145,8 +145,12 @@ public class Prim {
                 }
             }
         }
-        System.out.println("kaaret");
-        return kaaret;
+        Kaari[] kaaret2 = new Kaari[kaarilaskuri];
+        for (int i = 0; i < kaarilaskuri; i++) {
+            kaaret2[i] = kaaret[i];
+        }
+        mergesort(kaaret2, 0, kaaret2.length);
+        return kaaret2;
     }
 
     private boolean kaaritarkistus(Kaari[] kaaret, Solmu a, Solmu b, int kaarilaskuri) {
@@ -159,4 +163,39 @@ public class Prim {
             }
         } return false;
     }
+
+    private void mergesort(Kaari[] kaaret2, int vasen, int oikea) {
+        if (vasen < oikea) {
+            int keski = (vasen + oikea)/2;
+            mergesort(kaaret2, vasen, keski);
+            mergesort(kaaret2, keski + 1, oikea);
+            merge(kaaret2, vasen, keski, oikea);
+        }
+    }
+
+    private void merge(Kaari[] kaaret2, int vasen, int keski, int oikea) {
+        Kaari iso = new Kaari(new Solmu("solmu"), new Solmu("solmu"), Integer.MAX_VALUE);
+        int n1 = keski-vasen + 1;
+        int n2 = oikea - keski;
+        Kaari[] left = new Kaari[n1 + 1];
+        Kaari[] right = new Kaari[n2 + 1];
+        for (int i = 0; i < n1; i++) {
+            left[i] = kaaret2[vasen + i];
+            
+        }left[n1] = iso;
+        for (int i = 0; i < n2; i++) {
+            right[i] = kaaret2[keski + i];
+        } right[n2] = iso;
+        int i = 0;
+        int j = 0;
+        for (int k = vasen; k < oikea; k++) {
+            if (left[i].matka <= right[j].matka){
+                kaaret2[k] = left[i];
+                i++;
+        } else {
+                kaaret2[k] = right[j];
+                j++;
+            }
+    }
+}
 }
