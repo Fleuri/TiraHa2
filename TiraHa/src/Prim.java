@@ -21,6 +21,10 @@ public class Prim {
     /*
      * Tulostaa vierusmatriisiesityksen verkosta.
      */
+    /**
+     * 
+     * @param verkko
+     */
     public void tulostavierusmatriisi(Solmu[] verkko) {
         vierusmatriisi = new int[verkko.length][verkko.length];
         for (int i = 0; i < verkko.length; i++) {
@@ -131,6 +135,11 @@ public class Prim {
         System.out.println("");
     }
 
+    /**
+     * Etsii verkosta kaaret ja palauttaa ne järjestettynä taulukkona.
+     * @param verkko
+     * @return
+     */
     public Kaari[] getKaaret(Solmu[] verkko) {
         int kaarilaskuri = 0;
         Kaari[] kaaret = new Kaari[verkko.length * (verkko.length - 1) / 2];
@@ -152,7 +161,10 @@ public class Prim {
         mergesort(kaaret2, 0, kaaret2.length);
         return kaaret2;
     }
-
+/*
+ * Tarkistaa, että tarkasteltavien solmujen välinen kaari ei ole vielä lisätty
+ * kaaritaulukkoon. Palauttaa true, jos on, false jos ei.
+ */
     private boolean kaaritarkistus(Kaari[] kaaret, Solmu a, Solmu b, int kaarilaskuri) {
         if (a == b) {
             return true;
@@ -163,7 +175,9 @@ public class Prim {
             }
         } return false;
     }
-
+    /*
+     * Mergesort, joka järjestää kaaret niiden painojen mukaan.
+     */
     private void mergesort(Kaari[] kaaret2, int vasen, int oikea) {
         if (vasen < oikea) {
             int keski = (vasen + oikea)/2;
@@ -172,7 +186,9 @@ public class Prim {
             merge(kaaret2, vasen, keski, oikea);
         }
     }
-
+/*
+ * Mergesortin liitosmetodi.
+ */
     private void merge(Kaari[] kaaret2, int vasen, int keski, int oikea) {
         Kaari iso = new Kaari(new Solmu("solmu"), new Solmu("solmu"), Integer.MAX_VALUE);
         int n1 = keski-vasen + 1;
@@ -196,6 +212,15 @@ public class Prim {
                 kaaret2[k] = right[j];
                 j++;
             }
+    }
+}
+public void Kruskal(Solmu[] verkko) {
+    Kaari[] kaaret = getKaaret(verkko);
+    for (int i = 0; i < 10; i++) {
+        
+    }
+    for (int i = 0; i < kaaret.length; i++) {
+        
     }
 }
 }
