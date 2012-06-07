@@ -72,12 +72,13 @@ public class Hajautustaulu {
         int i = 0;
         while (true) {
         int sijoitus = (i + summa) % lista.length;
-        if (lista[sijoitus].solmu == solmu && lista[sijoitus].isEmpty == false) {
-            return lista[sijoitus].pituus;
-        } i++;
         if (lista[sijoitus] == null || i == lista.length) {
             return Integer.MAX_VALUE;
         }
+        if (lista[sijoitus].solmu == solmu && lista[sijoitus].isEmpty == false) {
+            return lista[sijoitus].pituus;
+        } i++;
+        
         }
 }
     public boolean contains(Solmu solmu) {

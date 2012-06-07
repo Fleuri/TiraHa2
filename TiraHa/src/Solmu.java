@@ -18,11 +18,13 @@ public class Solmu implements Comparable {
     /**
      * Säilyttää verkossa viereiset solmut ja kaarenpainot.
      */
-    public HashMap<Solmu, Integer> vieruslista;
+    //public HashMap<Solmu, Integer> vieruslista;
+       public Hajautustaulu vieruslista;
     /**
      * Säilyttää kaaret, joilla voidaan tulostaa viritetty puu.
      */
-    public HashMap<Solmu, Integer> primlista;
+    //public HashMap<Solmu, Integer> primlista;
+       public Hajautustaulu primlista;
     private String nimi;
     private Solmu parent;
     /**
@@ -35,8 +37,10 @@ public class Solmu implements Comparable {
      * @param nimi
      */
     public Solmu(String nimi) {
-        vieruslista = new HashMap<>();
-        primlista = new HashMap<>();
+       // vieruslista = new HashMap<>();
+        vieruslista = new Hajautustaulu();
+       // primlista = new HashMap<>();
+        primlista = new Hajautustaulu();
         this.nimi = nimi;
         parent = null;
     }
@@ -47,7 +51,7 @@ public class Solmu implements Comparable {
      * @param solmu
      */
     public void lisaavierus(int etaisyys, Solmu solmu) {
-        vieruslista.put(solmu, etaisyys);
+        vieruslista.insert(solmu, etaisyys);
     }
     /**
      * Sama kuin lisaavierus, mutta käytetään primissä.
@@ -55,7 +59,7 @@ public class Solmu implements Comparable {
      * @param solmu
      */
     public void lisaaprim(int etaisyys, Solmu solmu) {
-        primlista.put(solmu, etaisyys);
+        primlista.insert(solmu, etaisyys);
     }
     /**
      * Tulostaa solmun nimen.

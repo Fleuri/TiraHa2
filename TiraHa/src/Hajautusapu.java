@@ -19,7 +19,7 @@ public class Hajautusapu {
     }
 
     public boolean isEmpty() {
-        return isEmpty();
+        return isEmpty;
     }
     public void changeisEmpty() {
         if (isEmpty == true) {

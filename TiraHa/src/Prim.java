@@ -29,8 +29,10 @@ public class Prim {
         vierusmatriisi = new int[verkko.length][verkko.length];
         for (int i = 0; i < verkko.length; i++) {
             for (int j = 0; j < verkko.length; j++) {
-                if (verkko[i].vieruslista.containsKey(verkko[j])) {
-                    vierusmatriisi[i][j] = verkko[i].vieruslista.get(verkko[j]);
+               // if (verkko[i].vieruslista.containsKey(verkko[j])) {
+                if (verkko[i].vieruslista.contains(verkko[j])) {
+                    //vierusmatriisi[i][j] = verkko[i].vieruslista.get(verkko[j]);
+                    vierusmatriisi[i][j] = verkko[i].vieruslista.getPituus(verkko[j]);
                 } else if (verkko[i] == verkko[j]) {
                     vierusmatriisi[i][j] = 0;
                 } else {
@@ -79,9 +81,11 @@ public class Prim {
             Solmu u = heap.poll();
             //if (u.getParent() != null){
             for (int i = 0; i < verkko2.length; i++) {
-                if (u.vieruslista.containsKey(verkko2[i]) && heap.contains(verkko2[i]) && u.vieruslista.get(verkko2[i]) < verkko2[i].distance) {
+                //if (u.vieruslista.containsKey(verkko2[i]) && heap.contains(verkko2[i]) && u.vieruslista.get(verkko2[i]) < verkko2[i].distance) {
+                if (u.vieruslista.contains(verkko2[i]) && heap.contains(verkko2[i]) && u.vieruslista.getPituus(verkko2[i]) < verkko2[i].distance) {
                     verkko2[i].muutaParent(u);
-                    verkko2[i].distance = u.vieruslista.get(verkko2[i]);
+                    //verkko2[i].distance = u.vieruslista.get(verkko2[i]);
+                    verkko2[i].distance = u.vieruslista.getPituus(verkko2[i]);
                     heap.remove(verkko2[i]);
                     heap.add(verkko2[i]);
                 }
@@ -108,8 +112,10 @@ public class Prim {
         vierusmatriisi = new int[verkko.length][verkko.length];
         for (int i = 0; i < verkko.length; i++) {
             for (int j = 0; j < verkko.length; j++) {
-                if (verkko[i].primlista.containsKey(verkko[j])) {
-                    vierusmatriisi[i][j] = verkko[i].primlista.get(verkko[j]);
+              //  if (verkko[i].primlista.containsKey(verkko[j])) {
+                if (verkko[i].primlista.contains(verkko[j])) {
+                    //vierusmatriisi[i][j] = verkko[i].primlista.get(verkko[j]);
+                    vierusmatriisi[i][j] = verkko[i].primlista.getPituus(verkko[j]);
                 } else if (verkko[i] == verkko[j]) {
                     vierusmatriisi[i][j] = 0;
                 } else {
@@ -147,8 +153,10 @@ public class Prim {
             for (int k = 0; k < verkko.length; k++) {
                 if (kaaritarkistus(kaaret, verkko[i], verkko[k], kaarilaskuri)) {
                     continue;
-                } else if (verkko[i].vieruslista.containsKey(verkko[k])) {
-                    kaaret[kaarilaskuri] = new Kaari(verkko[i], verkko[k], verkko[i].vieruslista.get(verkko[k]));
+                } //else if (verkko[i].vieruslista.containsKey(verkko[k])) {
+                else if (verkko[i].vieruslista.contains(verkko[k])) {
+                    //kaaret[kaarilaskuri] = new Kaari(verkko[i], verkko[k], verkko[i].vieruslista.get(verkko[k]));
+                    kaaret[kaarilaskuri] = new Kaari(verkko[i], verkko[k], verkko[i].vieruslista.getPituus(verkko[k]));
                     kaarilaskuri++;
 
                 }
