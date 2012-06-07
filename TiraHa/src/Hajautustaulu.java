@@ -53,11 +53,18 @@ public class Hajautustaulu {
         }
     }
     public boolean delete(Solmu solmu){
-        if (contains(solmu) == false) {
-            return false;
-        } else {
+            int summa = solmu.hashCode();
             int i = 0;
-            while (true)
+        while (true) {
+        int sijoitus = (i + summa) % lista.length;
+            if (lista[sijoitus].solmu == solmu && lista[sijoitus].isEmpty == false) {
+                lista[sijoitus].changeisEmpty();
+                return true;
+            }
+        i++;
+        if (lista[sijoitus] == null || i == lista.length) {
+            return false;
+        }
         }
     }
 }
