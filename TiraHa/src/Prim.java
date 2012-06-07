@@ -216,8 +216,9 @@ public class Prim {
 }
 public void Kruskal(Solmu[] verkko) {
     Kaari[] kaaret = getKaaret(verkko);
-    for (int i = 0; i < 10; i++) {
-        
+    Palahajautustaulu palat = new Palahajautustaulu();
+    for (int i = 0; i < verkko.length; i++) {
+       palat.insert(new Pala(verkko[i], verkko.length, kaaret.length));
     }
     for (int i = 0; i < kaaret.length; i++) {
         

@@ -9,14 +9,16 @@
  */
 public class Pala {
     public Solmu[] pala;
-    Solmu tunnussolmu;
+    Kaari[] kaaret;
     int pituus;
+    public boolean isEmpty;
     
-    public Pala(Solmu solmu, int pituus) {
+    public Pala(Solmu solmu, int pituus, int kaariluku) {
         pala = new Solmu[pituus];
-        tunnussolmu = solmu;
         pala[0] = solmu;
-        pituus = 1;
+        this.pituus = 1;
+        kaaret = new Kaari[kaariluku];
+        isEmpty = false;
     }
     public boolean onkoSama(Pala toinenpala) {
         for (int i = 0; i < pituus; i++) {
@@ -31,5 +33,13 @@ public class Pala {
     }
     public void yhdista(Pala toinenpala) {
         
+    }
+    public boolean contains (Solmu solmu) {
+        for (int i = 0; i < pala.length; i++) {
+            if (pala[i] == solmu) {
+                return true;
+            }
+        }
+        return false;
     }
 }

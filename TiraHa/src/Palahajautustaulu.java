@@ -7,19 +7,19 @@
  *
  * @author Lauri Suomalainen
  */
-public class Hajautustaulu {
-    Hajautusapu[] lista;
+public class Palahajautustaulu {
+    Pala[] lista;
     
-    public Hajautustaulu(){
-        lista = new Hajautusapu[11];
+    public Palahajautustaulu(){
+        lista = new Pala[11];
         }
-    public boolean insert(Solmu solmu, int pituus){
+    public boolean insert(Pala pala){
         int i = 0;
-        int summa = solmu.hashCode();
+        int summa = pala.hashCode();
         while (true) {
         int sijoitus = (i + summa) % lista.length;
-            if (lista[sijoitus] == null || lista[sijoitus].isEmpty()) {
-                lista[sijoitus] = new Hajautusapu(solmu, pituus);
+            if (lista[sijoitus] == null || lista[sijoitus].isEmpty == true) {
+                lista[sijoitus] = pala;
                 return true;
             } i++;
             if (i == lista.length)
@@ -31,11 +31,11 @@ public class Hajautustaulu {
         while (true) {
         int i = lista.length;
             if (isPrime(i)) {
-                Hajautusapu[] lista2 = lista;
-                lista = new Hajautusapu[i];
+                Pala[] lista2 = lista;
+                lista = new Pala[i];
                 for (int j = 0; j < lista2.length; j++) {
                     if (lista2[j] != null) {
-                        insert(lista2[j].solmu, lista2[j].pituus); 
+                        insert(lista2[j]); 
                     }
                 } return;
             }
@@ -52,13 +52,13 @@ public class Hajautustaulu {
             }
         }
     }
-    public boolean delete(Solmu solmu){
-            int summa = solmu.hashCode();
+    public boolean delete(Pala pala){
+            int summa = pala.hashCode();
             int i = 0;
         while (true) {
         int sijoitus = (i + summa) % lista.length;
-            if (lista[sijoitus].solmu == solmu && lista[sijoitus].isEmpty == false) {
-                lista[sijoitus].changeisEmpty();
+            if (lista[sijoitus]== pala && lista[sijoitus].isEmpty == false) {
+                lista[sijoitus].isEmpty = true;
                 return true;
             }
         i++;
@@ -67,25 +67,18 @@ public class Hajautustaulu {
         }
         } 
     }
-    public int getPituus(Solmu solmu) {
-        int summa = solmu.hashCode();
+    public Pala getPala(Pala pala) {
+        int summa = pala.hashCode();
         int i = 0;
         while (true) {
         int sijoitus = (i + summa) % lista.length;
-        if (lista[sijoitus].solmu == solmu && lista[sijoitus].isEmpty == false) {
-            return lista[sijoitus].pituus;
+        if (lista[sijoitus] == pala && lista[sijoitus].isEmpty == false) {
+            return lista[sijoitus];
         } i++;
         if (lista[sijoitus] == null || i == lista.length) {
-            return Integer.MAX_VALUE;
+            return null;
         }
         }
 }
-    public boolean contains(Solmu solmu) {
-        int luku = getPituus(solmu);
-        if (luku == Integer.MAX_VALUE) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+
 }
