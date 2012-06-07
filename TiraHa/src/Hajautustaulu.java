@@ -52,4 +52,12 @@ public class Hajautustaulu {
             }
         }
     }
+    public boolean delete(Solmu solmu){
+        if (contains(solmu) == false) {
+            return false;
+        } else {
+            int i = 0;
+            while (true)
+        }
+    }
 }
