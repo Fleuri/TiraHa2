@@ -68,14 +68,16 @@ public class Prim {
     public Solmu[] primAlgoritmi(Solmu[] verkko) {
         Solmu[] verkko2 = verkko;
 
-        PriorityQueue<Solmu> heap = new PriorityQueue();
+        //PriorityQueue<Solmu> heap = new PriorityQueue();
+        Heap heap = new Heap(verkko.length);
         for (int i = 0; i < verkko2.length; i++) {
             verkko2[i].nollaaParent();
             verkko2[i].distance = Integer.MAX_VALUE;
         }
         verkko2[0].distance = 0;
         for (int i = 0; i < verkko2.length; i++) {
-            heap.add(verkko2[i]);
+           // heap.add(verkko2[i]);
+            heap.insert(verkko[i]);
         }
         while (!heap.isEmpty()) {
             Solmu u = heap.poll();
@@ -86,8 +88,10 @@ public class Prim {
                     verkko2[i].muutaParent(u);
                     //verkko2[i].distance = u.vieruslista.get(verkko2[i]);
                     verkko2[i].distance = u.vieruslista.getPituus(verkko2[i]);
+                    //heap.remove(verkko2[i]);
+                    //heap.add(verkko2[i]);
                     heap.remove(verkko2[i]);
-                    heap.add(verkko2[i]);
+                    heap.insert(verkko2[i]);
                 }
             }
         }
