@@ -8,35 +8,69 @@
  * @author Lauri Suomalainen
  */
 public class Pala {
-    public Solmu[] pala;
+
+    public Solmu[] solmut;
     Kaari[] kaaret;
-    int pituus;
+    int kaariluku;
+    int solmujenmaara;
     public boolean isEmpty;
+    int solmutaulukonpituus;
     
-    public Pala(Solmu solmu, int pituus, int kaariluku) {
-        pala = new Solmu[pituus];
-        pala[0] = solmu;
-        this.pituus = 1;
+    public Pala(Solmu solmu, int solmutaulukonpituus, int kaariluku) {
+        this.solmutaulukonpituus = solmutaulukonpituus;
+        solmut = new Solmu[solmutaulukonpituus];
+        solmut[0] = solmu;
+        solmujenmaara = 1;
         kaaret = new Kaari[kaariluku];
+        this.kaariluku = 0;
         isEmpty = false;
     }
+
     public boolean onkoSama(Pala toinenpala) {
-        for (int i = 0; i < pituus; i++) {
-            for (int j = 0; j < toinenpala.pituus; j++) {
-               if (toinenpala.pala[j] == pala[i]) {
+        for (int i = 0; i < solmujenmaara; i++) {
+            for (int j = 0; j < toinenpala.solmujenmaara; j++) {
+                if (toinenpala.solmut[j] == solmut[i]) {
                     break;
-                } else if (j == toinenpala.pituus) {
+                } else if (j == toinenpala.solmujenmaara) {
                     return false;
                 }
-            } 
-        } return true;
+            }            
+        }
+        return true;
     }
-    public void yhdista(Pala toinenpala) {
-        
+
+    public void lisaasolmu(Solmu solmu) {
+        solmut[solmujenmaara] = solmu;
+        solmujenmaara++;
     }
-    public boolean contains (Solmu solmu) {
-        for (int i = 0; i < pala.length; i++) {
-            if (pala[i] == solmu) {
+
+    public void lisaakaari(Kaari kaari) {
+        kaaret[kaariluku] = kaari;
+        kaariluku++;
+    }
+    
+    public void yhdista(Pala toinenpala, Palahajautustaulu taulu, Kaari kaari) {
+        Pala uusipala = new Pala(solmut[0], solmutaulukonpituus, kaaret.length);
+        for (int i = 1; i < solmujenmaara; i++) {
+            uusipala.lisaasolmu(solmut[i]);
+        }
+        for (int i = 0; i < kaariluku; i++) {
+            uusipala.lisaakaari(kaaret[i]);
+        }
+        for (int i = 0; i < toinenpala.solmujenmaara; i++) {
+            uusipala.lisaasolmu(toinenpala.solmut[i]);
+        }
+        for (int i = 0; i < toinenpala.kaariluku; i++) {
+            uusipala.lisaakaari(toinenpala.kaaret[i]);
+        }
+        taulu.delete(this);
+        taulu.delete(toinenpala);
+        taulu.insert(uusipala);
+    }
+
+    public boolean contains(Solmu solmu) {
+        for (int i = 0; i < solmut.length; i++) {
+            if (solmut[i] == solmu) {
                 return true;
             }
         }

@@ -203,7 +203,8 @@ public class Prim {
         int n2 = oikea - keski;
         Kaari[] left = new Kaari[n1 + 1];
         Kaari[] right = new Kaari[n2 + 1];
-        for (int i = 0; i < n1; i++) {
+        for (int i = 0; i < n1; i++)
+        {
             left[i] = kaaret2[vasen + i];
             
         }left[n1] = iso;
