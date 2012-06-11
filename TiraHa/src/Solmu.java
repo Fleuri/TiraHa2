@@ -103,4 +103,7 @@ public class Solmu implements Comparable {
             return 1;
         }
     }
+    public void nollaaPrimlista() {
+        primlista = new Hajautustaulu();
+    }
 }

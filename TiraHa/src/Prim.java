@@ -22,14 +22,14 @@ public class Prim {
      * Tulostaa vierusmatriisiesityksen verkosta.
      */
     /**
-     * 
+     *
      * @param verkko
      */
     public void tulostavierusmatriisi(Solmu[] verkko) {
         vierusmatriisi = new int[verkko.length][verkko.length];
         for (int i = 0; i < verkko.length; i++) {
             for (int j = 0; j < verkko.length; j++) {
-               // if (verkko[i].vieruslista.containsKey(verkko[j])) {
+                // if (verkko[i].vieruslista.containsKey(verkko[j])) {
                 if (verkko[i].vieruslista.contains(verkko[j])) {
                     //vierusmatriisi[i][j] = verkko[i].vieruslista.get(verkko[j]);
                     vierusmatriisi[i][j] = verkko[i].vieruslista.getPituus(verkko[j]);
@@ -70,6 +70,7 @@ public class Prim {
 
         PriorityQueue<Solmu> heap = new PriorityQueue();
         for (int i = 0; i < verkko2.length; i++) {
+            verkko2[i].nollaaPrimlista();
             verkko2[i].nollaaParent();
             verkko2[i].distance = Integer.MAX_VALUE;
         }
@@ -112,7 +113,7 @@ public class Prim {
         vierusmatriisi = new int[verkko.length][verkko.length];
         for (int i = 0; i < verkko.length; i++) {
             for (int j = 0; j < verkko.length; j++) {
-              //  if (verkko[i].primlista.containsKey(verkko[j])) {
+                //  if (verkko[i].primlista.containsKey(verkko[j])) {
                 if (verkko[i].primlista.contains(verkko[j])) {
                     //vierusmatriisi[i][j] = verkko[i].primlista.get(verkko[j]);
                     vierusmatriisi[i][j] = verkko[i].primlista.getPituus(verkko[j]);
@@ -143,6 +144,7 @@ public class Prim {
 
     /**
      * Etsii verkosta kaaret ja palauttaa ne järjestettynä taulukkona.
+     *
      * @param verkko
      * @return
      */
@@ -169,68 +171,118 @@ public class Prim {
         mergesort(kaaret2, 0, kaaret2.length);
         return kaaret2;
     }
-/*
- * Tarkistaa, että tarkasteltavien solmujen välinen kaari ei ole vielä lisätty
- * kaaritaulukkoon. Palauttaa true, jos on, false jos ei.
- */
+    /*
+     * Tarkistaa, että tarkasteltavien solmujen välinen kaari ei ole vielä
+     * lisätty kaaritaulukkoon. Palauttaa true, jos on, false jos ei.
+     */
+
     private boolean kaaritarkistus(Kaari[] kaaret, Solmu a, Solmu b, int kaarilaskuri) {
         if (a == b) {
             return true;
         }
         for (int i = 0; i < kaarilaskuri; i++) {
-            if ((kaaret[i].a == a || kaaret[i].b == a) && (kaaret[i].a == b || kaaret[i].b == b)){
+            if ((kaaret[i].a == a || kaaret[i].b == a) && (kaaret[i].a == b || kaaret[i].b == b)) {
                 return true;
             }
-        } return false;
+        }
+        return false;
     }
     /*
      * Mergesort, joka järjestää kaaret niiden painojen mukaan.
      */
+
     private void mergesort(Kaari[] kaaret2, int vasen, int oikea) {
         if (vasen < oikea) {
-            int keski = (vasen + oikea)/2;
+            double keskiapu = (vasen + oikea) / 2;
+            int keski = (int) keskiapu;
             mergesort(kaaret2, vasen, keski);
             mergesort(kaaret2, keski + 1, oikea);
             merge(kaaret2, vasen, keski, oikea);
         }
     }
-/*
- * Mergesortin liitosmetodi.
- */
+    /*
+     * Mergesortin liitosmetodi.
+     */
+
     private void merge(Kaari[] kaaret2, int vasen, int keski, int oikea) {
         Kaari iso = new Kaari(new Solmu("solmu"), new Solmu("solmu"), Integer.MAX_VALUE);
-        int n1 = keski-vasen + 1;
+        int n1 = keski - vasen + 1;
         int n2 = oikea - keski;
         Kaari[] left = new Kaari[n1 + 1];
         Kaari[] right = new Kaari[n2 + 1];
-        for (int i = 0; i < n1; i++)
-        {
+        for (int i = 0; i < n1; i++) {
             left[i] = kaaret2[vasen + i];
-            
-        }left[n1] = iso;
+
+        }
+        left[n1] = iso;
         for (int i = 0; i < n2; i++) {
             right[i] = kaaret2[keski + i];
-        } right[n2] = iso;
+        }
+        right[n2] = iso;
         int i = 0;
         int j = 0;
         for (int k = vasen; k < oikea; k++) {
-            if (left[i].matka <= right[j].matka){
+            if (left[i].matka <= right[j].matka) {
                 kaaret2[k] = left[i];
                 i++;
-        } else {
+            } else {
                 kaaret2[k] = right[j];
                 j++;
             }
+        }
     }
-}
-public void Kruskal(Solmu[] verkko) {
-    Kaari[] kaaret = getKaaret(verkko);
-    Palahajautustaulu palat = new Palahajautustaulu();
-    for (int i = 0; i < verkko.length; i++) {
-       palat.insert(new Pala(verkko[i], verkko.length, kaaret.length));
+
+    public void Kruskal(Solmu[] verkko) {
+        for (int i = 0; i < verkko.length; i++) {
+            verkko[i].nollaaPrimlista();
+        }
+        Kaari[] kaaret = getKaaret(verkko);
+        Palahajautustaulu palat = new Palahajautustaulu();
+        Pala a = null;
+        boolean afound;
+        Pala b = null;
+        boolean bfound;
+        for (int i = 0; i < verkko.length; i++) {
+            palat.insert(new Pala(verkko[i], verkko.length, kaaret.length));
+        }
+        for (int i = 0; i < kaaret.length; i++) {
+            afound = false;
+            bfound = false;
+            for (int j = 0; j < palat.lista.length; j++) {
+                if (palat.lista[j] != null) {
+                    if (!palat.lista[j].isEmpty && palat.lista[j].contains(kaaret[i].a)) {
+                        a = palat.lista[j];
+                        afound = true;
+                    }
+                }
+                if (palat.lista[j] != null) {
+                    if (!palat.lista[j].isEmpty && palat.lista[j].contains(kaaret[i].b)) {
+                        b = palat.lista[j];
+                        bfound = true;
+                    }
+                }
+                if (afound && bfound) {
+                    break;
+                }
+
+            }
+            if (!a.onkoSama(b)) {
+                a.lisaakaari(kaaret[i]);
+                a.yhdista(b, palat);
+            }
+            a = null;
+            b = null;
+        }
+        Pala vikapala = null;
+        for (int i = 0; i < palat.lista.length; i++) {
+            if (palat.lista[i] != null && !palat.lista[i].isEmpty) {
+                vikapala = palat.lista[i];
+                break;
+            }
+        }
+        for (int i = 0; i < vikapala.kaariluku; i++) {
+            vikapala.kaaret[i].a.primlista.insert(vikapala.kaaret[i].b, vikapala.kaaret[i].matka);
+            vikapala.kaaret[i].b.primlista.insert(vikapala.kaaret[i].a, vikapala.kaaret[i].matka);
+        }
     }
-    for (int i = 0; i < kaaret.length; i++) {
-        
-    }
-}
 }
