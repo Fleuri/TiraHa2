@@ -31,7 +31,7 @@ public class Pala {
             for (int j = 0; j < toinenpala.solmujenmaara; j++) {
                 if (toinenpala.solmut[j] == solmut[i]) {
                     break;
-                } else if (j == toinenpala.solmujenmaara) {
+                } else if (j == toinenpala.solmujenmaara - 1) {
                     return false;
                 }
             }            
@@ -49,7 +49,7 @@ public class Pala {
         kaariluku++;
     }
     
-    public void yhdista(Pala toinenpala, Palahajautustaulu taulu, Kaari kaari) {
+    public void yhdista(Pala toinenpala, Palahajautustaulu taulu) {
         Pala uusipala = new Pala(solmut[0], solmutaulukonpituus, kaaret.length);
         for (int i = 1; i < solmujenmaara; i++) {
             uusipala.lisaasolmu(solmut[i]);
