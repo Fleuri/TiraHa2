@@ -17,32 +17,32 @@ public class Kello {
     static long kruskalTotal;
 
     public static void primStart() {
-        primAlku = System.currentTimeMillis();
+        primAlku = System.nanoTime();
     }
 
     public static void primStop() {
-        primLoppu = System.currentTimeMillis();
+        primLoppu = System.nanoTime();
         primTotal = primLoppu - primAlku;
     }
 
     public static void kruskalStart() {
-        kruskalAlku = System.currentTimeMillis();
+        kruskalAlku = System.nanoTime();
     }
 
     public static void kruskalStop() {
-        kruskalLoppu = System.currentTimeMillis();
+        kruskalLoppu = System.nanoTime();
         kruskalTotal = kruskalLoppu - kruskalAlku;
     }
 
-    public String tulostaTiedot() {
-        int prosentti = (int) (Math.max(primTotal, kruskalTotal) / Math.min(primTotal, kruskalTotal)) * 100;
-        if (primTotal > kruskalTotal) {
-            return "Primin algoritmin nopeus: " + primTotal + " millisekuntia\n"
-                    + "Kruskalin algoritmin nopeus: " + kruskalTotal + " millisekuntia\n"
+    public static String tulostaTiedot() {
+        double prosentti =  ((double)((primTotal <= kruskalTotal) ? primTotal : kruskalTotal) / ((double)((primTotal >= kruskalTotal) ? primTotal : kruskalTotal)) * 100.0);
+        if (primTotal < kruskalTotal) {
+            return "Primin algoritmin nopeus: " + primTotal + " nanosekuntia\n"
+                    + "Kruskalin algoritmin nopeus: " + kruskalTotal + " nanosekuntia\n"
                     + "Prim oli " + prosentti + " prosenttia nopeampi";
-        } else if (primTotal < kruskalTotal) {
-            return "Primin algoritmin nopeus: " + primTotal + " millisekuntia\n"
-                    + "Kruskalin algoritmin nopeus: " + kruskalTotal + " millisekuntia\n"
+        } else if (primTotal > kruskalTotal) {
+            return "Primin algoritmin nopeus: " + primTotal + " nanosekuntia\n"
+                    + "Kruskalin algoritmin nopeus: " + kruskalTotal + " nanosekuntia\n"
                     + "Kruskal oli " + prosentti + " prosenttia nopeampi";
         } else {
             return "Näin ei pitänyt käydä. Algoritmit olivat yhtä nopeita (!) tai todennäköisemmin tapahtui virhe";

@@ -66,6 +66,7 @@ public class Prim {
      * @return
      */
     public Solmu[] primAlgoritmi(Solmu[] verkko) {
+        Kello.primStart();
         Solmu[] verkko2 = verkko;
 
         //PriorityQueue<Solmu> heap = new PriorityQueue();
@@ -96,6 +97,7 @@ public class Prim {
                 }
             }
         }
+        Kello.primStop();
         for (int i = 0; i < verkko2.length; i++) {
 
             if (verkko2[i].getParent() != null) {
@@ -237,6 +239,7 @@ public class Prim {
     }
 
     public void Kruskal(Solmu[] verkko) {
+        Kello.kruskalStart();
         for (int i = 0; i < verkko.length; i++) {
             verkko[i].nollaaPrimlista();
         }
@@ -277,6 +280,7 @@ public class Prim {
             a = null;
             b = null;
         }
+        Kello.kruskalStop();
         Pala vikapala = null;
         for (int i = 0; i < palat.lista.length; i++) {
             if (palat.lista[i] != null && !palat.lista[i].isEmpty) {
