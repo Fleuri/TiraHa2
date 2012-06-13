@@ -172,7 +172,7 @@ public class Prim {
         for (int i = 0; i < kaarilaskuri; i++) {
             kaaret2[i] = kaaret[i];
         }
-        mergesort(kaaret2, 0, kaaret2.length);
+        mergesort(kaaret2, 0, kaaret2.length-1);
         return kaaret2;
     }
     /*
@@ -220,12 +220,12 @@ public class Prim {
         }
         left[n1] = iso;
         for (int i = 0; i < n2; i++) {
-            right[i] = kaaret2[keski + i];
+            right[i] = kaaret2[keski + (i+1)];
         }
         right[n2] = iso;
         int i = 0;
         int j = 0;
-        for (int k = vasen; k < oikea; k++) {
+        for (int k = vasen; k <= oikea; k++) {
             if (left[i].matka <= right[j].matka) {
                 kaaret2[k] = left[i];
                 i++;
