@@ -69,7 +69,7 @@ public class Heap {
     }
 
     /**
-     * Asettaa
+     * Asettaa solmun oikealle paikalleen kekoon.
      * @param solmu
      */
     public void insert(Solmu solmu) {
@@ -88,7 +88,7 @@ public class Heap {
     }
 
     /**
-     * 
+     * Poistaa ensimmäisenä olevan solmun.
      * @return
      */
     public Solmu poll() {
@@ -100,7 +100,7 @@ public class Heap {
     }
 
     /**
-     * 
+     * Tarkistaa, onko keossa solmuja.
      * @return
      */
     public boolean isEmpty() {
@@ -108,7 +108,7 @@ public class Heap {
     }
 
     /**
-     * 
+     * Tarkistaa, onko annettu solmu keossa.
      * @param solmu
      * @return
      */
@@ -121,7 +121,7 @@ public class Heap {
         return false;
     }
     /**
-     * 
+     * Poistaa annetun solmun, jos keossa.
      * @param solmu
      */
     public void remove(Solmu solmu) {

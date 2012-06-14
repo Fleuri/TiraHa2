@@ -4,13 +4,13 @@
  */
 
 /**
- *
+ * Tätä luokkaa käytetään Kruskalissa. Se tallentaa palaan kuuluvat solmut ja kaaret.
  * @author Lauri Suomalainen
  */
 public class Pala {
 
     /**
-     * 
+     *
      */
     public Solmu[] solmut;
     Kaari[] kaaret;
@@ -23,7 +23,7 @@ public class Pala {
     int solmutaulukonpituus;
     
     /**
-     * 
+     * Konstruktori.
      * @param solmu
      * @param solmutaulukonpituus
      * @param kaariluku
@@ -39,7 +39,7 @@ public class Pala {
     }
 
     /**
-     * 
+     * Tarkistaa, mikäli annettu pala on sama, kuin tämä pala.
      * @param toinenpala
      * @return
      */
@@ -57,7 +57,7 @@ public class Pala {
     }
 
     /**
-     * 
+     * Lisää solmun palaan.
      * @param solmu
      */
     public void lisaasolmu(Solmu solmu) {
@@ -66,7 +66,7 @@ public class Pala {
     }
 
     /**
-     * 
+     * Lisää kaaren palaan.
      * @param kaari
      */
     public void lisaakaari(Kaari kaari) {
@@ -75,7 +75,8 @@ public class Pala {
     }
     
     /**
-     * 
+     * Yhdistää kaksi eri palaa uudeksi palaksi. Poistaa vanhat palat annetusta 
+     * hajautustaulusta ja lisää uuden.
      * @param toinenpala
      * @param taulu
      */
@@ -99,7 +100,7 @@ public class Pala {
     }
 
     /**
-     * 
+     * Tarkistaa, sisältääkö pala annetun solmun.
      * @param solmu
      * @return
      */

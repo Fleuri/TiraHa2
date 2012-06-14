@@ -93,7 +93,7 @@ public class Solmu implements Comparable {
     }
 
     /**
-     * 
+     * Vertailee solmujen distance arvoja. Käytetään, jos käytössä Priorityqueue.
      * @param o
      * @return
      */
@@ -109,7 +109,7 @@ public class Solmu implements Comparable {
         }
     }
     /**
-     * 
+     * Nollaa Primlistan.
      */
     public void nollaaPrimlista() {
         primlista = new Hajautustaulu();

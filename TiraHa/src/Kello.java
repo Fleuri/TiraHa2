@@ -4,7 +4,7 @@
  */
 
 /**
- *
+ * Tämä luokka ottaa aikaa algoritmeille ja laskee niiden erotuksen.
  * @author lauri
  */
 public class Kello {
@@ -17,14 +17,14 @@ public class Kello {
     static long kruskalTotal;
 
     /**
-     * 
+     * Merkitsee ylös primin lähtöajan.
      */
     public static void primStart() {
         primAlku = System.nanoTime();
     }
 
     /**
-     * 
+     * Merkitse ylös primin loppuajan ja laskee kokonaisajan.
      */
     public static void primStop() {
         primLoppu = System.nanoTime();
@@ -32,14 +32,14 @@ public class Kello {
     }
 
     /**
-     * 
+     * Merkitsee ylös kruskalin lähtöajan.
      */
     public static void kruskalStart() {
         kruskalAlku = System.nanoTime();
     }
 
     /**
-     * 
+     * Merkitse ylös kruskalin loppuajan ja laskee kokonaisajan.
      */
     public static void kruskalStop() {
         kruskalLoppu = System.nanoTime();
@@ -47,7 +47,7 @@ public class Kello {
     }
 
     /**
-     * 
+     * Tulostaa tiedot ajanotosta.
      * @return
      */
     public static String tulostaTiedot() {

@@ -4,20 +4,21 @@
  */
 
 /**
- *
+ * Tämä hajautustaulu on suunniteltu palojen käsittelyä varten.
  * @author Lauri Suomalainen
  */
 public class Palahajautustaulu {
     Pala[] lista;
     
     /**
-     * 
+     * Konstruktori.
      */
     public Palahajautustaulu(){
         lista = new Pala[11];
         }
     /**
-     * 
+     *  Asettaa solmun listaan validille paikalle. Mikäli lista täyttyy, kutsuu
+     * pidennaLista -metodia.
      * @param pala
      * @return
      */
@@ -34,7 +35,10 @@ public class Palahajautustaulu {
                 pidennalista();
         }
     }
-
+    /*
+     * Etsii seuraavan alkuluvun ja luo sen pituisen uuden taulukon.
+     * Siirtää vanhan taulukon tiedot uuteen.
+     */
     private void pidennalista() {
         while (true) {
         int i = lista.length;
@@ -50,7 +54,9 @@ public class Palahajautustaulu {
             i++;
     }
     }
-
+/*
+ * Tarkistaa, että onko annettu luku alkuluku.
+ */
     private boolean isPrime(int i) {
         while (true) {
             for (int j = 2; j < i; j++) {
@@ -61,9 +67,9 @@ public class Palahajautustaulu {
         }
     }
     /**
-     * 
+     * Poistaa solmun taulukosta eli muuttaa isEmptyn trueksi.
      * @param pala
-     * @return
+     * @return jos solmu löytyi ja poistettiin, muuten false.
      */
     public boolean delete(Pala pala){
             int summa = pala.hashCode();
@@ -81,7 +87,7 @@ public class Palahajautustaulu {
         } 
     }
     /**
-     * 
+     *  Palauttaa annetun palan, mikäli taulussa.
      * @param pala
      * @return
      */

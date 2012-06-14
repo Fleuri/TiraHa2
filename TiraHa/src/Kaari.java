@@ -4,22 +4,22 @@
  */
 
 /**
- *
+ * Tämä luokka säilyttää solmut ja niiden välisen kaaren painot.
  * @author Lauri Suomalainen
  */
 public class Kaari {
     /**
-     * 
+     * Kaaren ensimmäinen solmu.
      */
     public Solmu a;
     /**
-     * 
+     * Kaaren toinen solmu
      */
     public Solmu b;
     int matka;
     
     /**
-     * 
+     * Konstruktori.
      * @param a
      * @param b
      * @param matka
