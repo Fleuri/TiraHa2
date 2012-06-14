@@ -38,7 +38,7 @@ public class PrimTest {
     public void testTulostavierusmatriisi() {
         System.out.println("tulostavierusmatriisi");
         Solmu[] verkko = null;
-        Prim instance = new Prim();
+        Algoritmit instance = new Algoritmit();
         instance.tulostavierusmatriisi(verkko);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -51,7 +51,7 @@ public class PrimTest {
     public void testPrimAlgoritmi() {
         System.out.println("primAlgoritmi");
         Solmu[] verkko = null;
-        Prim instance = new Prim();
+        Algoritmit instance = new Algoritmit();
         Solmu[] expResult = null;
         Solmu[] result = instance.primAlgoritmi(verkko);
         assertEquals(expResult, result);
@@ -66,7 +66,7 @@ public class PrimTest {
     public void testTulostaprim() {
         System.out.println("tulostaprim");
         Solmu[] verkko = null;
-        Prim instance = new Prim();
+        Algoritmit instance = new Algoritmit();
         instance.tulostaprim(verkko);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

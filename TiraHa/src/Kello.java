@@ -35,17 +35,17 @@ public class Kello {
     }
 
     public static String tulostaTiedot() {
-        double prosentti =  ((double)((primTotal <= kruskalTotal) ? primTotal : kruskalTotal) / ((double)((primTotal >= kruskalTotal) ? primTotal : kruskalTotal)) * 100.0);
+        double prosentti = (100 - ((double)((primTotal <= kruskalTotal) ? primTotal : kruskalTotal) / ((double)((primTotal >= kruskalTotal) ? primTotal : kruskalTotal)) * 100.0));
         if (primTotal < kruskalTotal) {
-            return "Primin algoritmin nopeus: " + primTotal + " nanosekuntia\n"
-                    + "Kruskalin algoritmin nopeus: " + kruskalTotal + " nanosekuntia\n"
-                    + "Prim oli " + prosentti + " prosenttia nopeampi";
+            return "Primin algoritmin nopeus: " + primTotal + " nanosekuntia.\n"
+                    + "Kruskalin algoritmin nopeus: " + kruskalTotal + " nanosekuntia.\n"
+                    + "Prim käytti " + prosentti + " prosenttia vähemmän aikaa kuin Kruskal.";
         } else if (primTotal > kruskalTotal) {
-            return "Primin algoritmin nopeus: " + primTotal + " nanosekuntia\n"
-                    + "Kruskalin algoritmin nopeus: " + kruskalTotal + " nanosekuntia\n"
-                    + "Kruskal oli " + prosentti + " prosenttia nopeampi";
+            return "Primin algoritmin nopeus: " + primTotal + " nanosekuntia.\n"
+                    + "Kruskalin algoritmin nopeus: " + kruskalTotal + " nanosekuntia.\n"
+                    + "Kruskal käytti " + prosentti + " prosenttia vähemmän aikaa kuin Prim.";
         } else {
-            return "Näin ei pitänyt käydä. Algoritmit olivat yhtä nopeita (!) tai todennäköisemmin tapahtui virhe";
+            return "Näin ei pitänyt käydä. Algoritmit olivat yhtä nopeita (!) tai todennäköisemmin tapahtui virhe.";
         }
     }
 }

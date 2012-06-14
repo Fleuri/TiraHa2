@@ -13,7 +13,7 @@ public class PrimKruskalMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    Prim prim = new Prim();
+    Algoritmit prim = new Algoritmit();
            Solmu A = new Solmu("A");
         Solmu B = new Solmu("B");
         Solmu C = new Solmu("C");
@@ -43,6 +43,7 @@ public class PrimKruskalMain {
         prim.tulostaprim(verkko);
         System.out.println("");
         System.out.println(Kello.tulostaTiedot());
+        System.out.println("");
         Solmu A2 = new Solmu("A");
         Solmu B2 = new Solmu("B");
         Solmu C2 = new Solmu("C");
@@ -68,11 +69,13 @@ public class PrimKruskalMain {
         System.out.println("");
         prim.tulostaprim(verkko2);
         prim.Kruskal(verkko2);
+        System.out.println("");
         System.out.println("Kruskalin tulos:");
         System.out.println("");
         prim.tulostaprim(verkko2);
         System.out.println("");
         System.out.println(Kello.tulostaTiedot());
+        System.out.println("");
         
         /*System.out.println("");
         System.out.print("Henkilöiden ikien absoluuttiset erotukset");

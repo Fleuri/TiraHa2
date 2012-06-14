@@ -13,7 +13,7 @@ import java.util.Set;
  *
  * @author Lauri Suomalainen
  */
-public class Prim {
+public class Algoritmit {
 
     int[][] vierusmatriisi;
     int[][] viritettypuu;
