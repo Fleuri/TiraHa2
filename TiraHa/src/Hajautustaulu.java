@@ -4,15 +4,25 @@
  */
 
 /**
- *
+ * Hajautustaulu, joka on tarkoitettu käytettäväksi vieruslistoina.
  * @author Lauri Suomalainen
  */
 public class Hajautustaulu {
     Hajautusapu[] lista;
     
+    /**
+     * Tekee uuden yksitoistapaikkaisen taulukon. 
+     */
     public Hajautustaulu(){
         lista = new Hajautusapu[11];
         }
+    /**
+     * Asettaa solmun listaan validille paikalle. Mikäli lista täyttyy, kutsuu
+     * pidennaLista -metodia.
+     * @param solmu
+     * @param pituus
+     * @return
+     */
     public boolean insert(Solmu solmu, int pituus){
         int i = 0;
         int summa = solmu.hashCode();
@@ -26,10 +36,13 @@ public class Hajautustaulu {
                 pidennalista();
         }
     }
-
+    /*
+     * Etsii seuraavan alkuluvun ja luo sen pituisen uuden taulukon.
+     * Siirtää vanhan taulukon tiedot uuteen.
+     */
     private void pidennalista() {
+       int i = lista.length;
         while (true) {
-        int i = lista.length;
             if (isPrime(i)) {
                 Hajautusapu[] lista2 = lista;
                 lista = new Hajautusapu[i];
@@ -42,16 +55,23 @@ public class Hajautustaulu {
             i++;
     }
     }
-
+/*
+ * Tarkistaa, että onko annettu luku alkuluku.
+ */
     private boolean isPrime(int i) {
-        while (true) {
             for (int j = 2; j < i; j++) {
-                if (i % j != 0) {
-                    return true;
+                if (i % j == 0) {
+                    return false;
                 }
             }
+            return true;
         }
-    }
+    
+    /**
+     * Poistaa solmun taulukosta eli muuttaa isEmptyn trueksi.
+     * @param solmu
+     * @return true jos solmu löytyi ja poistettiin, muuten false.
+     */
     public boolean delete(Solmu solmu){
             int summa = solmu.hashCode();
             int i = 0;
@@ -67,6 +87,11 @@ public class Hajautustaulu {
         }
         } 
     }
+    /**
+     * Palauttaa solmun pituusarvon.
+     * @param solmu
+     * @return
+     */
     public int getPituus(Solmu solmu) {
         int summa = solmu.hashCode();
         int i = 0;
@@ -81,6 +106,13 @@ public class Hajautustaulu {
         
         }
 }
+    /**
+     * Tarkistaa, että onko pyydetyllä solmulla pituutta. Palauttaa true, jos
+     * solmu löytyy. Muuten false.
+     * 
+     * @param solmu
+     * @return
+     */
     public boolean contains(Solmu solmu) {
         int luku = getPituus(solmu);
         if (luku == Integer.MAX_VALUE) {

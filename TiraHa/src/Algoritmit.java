@@ -16,13 +16,10 @@ import java.util.Set;
 public class Algoritmit {
 
     int[][] vierusmatriisi;
-    int[][] viritettypuu;
+    
 
     /*
      * Tulostaa vierusmatriisiesityksen verkosta.
-     */
-    /**
-     *
      * @param verkko
      */
     public void tulostavierusmatriisi(Solmu[] verkko) {
@@ -238,6 +235,12 @@ public class Algoritmit {
         }
     }
 
+    /**
+     * Suorittaa Kruskalin algoritmin verkolle. Tulos asetetaan solmujen primListaan.
+     * Voidaan tulostaa tulostaPrim -metodilla.
+     * 
+     * @param verkko
+     */
     public void Kruskal(Solmu[] verkko) {
         Kello.kruskalStart();
         for (int i = 0; i < verkko.length; i++) {

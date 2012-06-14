@@ -16,24 +16,40 @@ public class Kello {
     static long kruskalLoppu;
     static long kruskalTotal;
 
+    /**
+     * 
+     */
     public static void primStart() {
         primAlku = System.nanoTime();
     }
 
+    /**
+     * 
+     */
     public static void primStop() {
         primLoppu = System.nanoTime();
         primTotal = primLoppu - primAlku;
     }
 
+    /**
+     * 
+     */
     public static void kruskalStart() {
         kruskalAlku = System.nanoTime();
     }
 
+    /**
+     * 
+     */
     public static void kruskalStop() {
         kruskalLoppu = System.nanoTime();
         kruskalTotal = kruskalLoppu - kruskalAlku;
     }
 
+    /**
+     * 
+     * @return
+     */
     public static String tulostaTiedot() {
         double prosentti = (100 - ((double)((primTotal <= kruskalTotal) ? primTotal : kruskalTotal) / ((double)((primTotal >= kruskalTotal) ? primTotal : kruskalTotal)) * 100.0));
         if (primTotal < kruskalTotal) {

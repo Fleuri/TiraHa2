@@ -9,13 +9,25 @@
  */
 public class Pala {
 
+    /**
+     * 
+     */
     public Solmu[] solmut;
     Kaari[] kaaret;
     int kaariluku;
     int solmujenmaara;
+    /**
+     * 
+     */
     public boolean isEmpty;
     int solmutaulukonpituus;
     
+    /**
+     * 
+     * @param solmu
+     * @param solmutaulukonpituus
+     * @param kaariluku
+     */
     public Pala(Solmu solmu, int solmutaulukonpituus, int kaariluku) {
         this.solmutaulukonpituus = solmutaulukonpituus;
         solmut = new Solmu[solmutaulukonpituus];
@@ -26,6 +38,11 @@ public class Pala {
         isEmpty = false;
     }
 
+    /**
+     * 
+     * @param toinenpala
+     * @return
+     */
     public boolean onkoSama(Pala toinenpala) {
         for (int i = 0; i < solmujenmaara; i++) {
             for (int j = 0; j < toinenpala.solmujenmaara; j++) {
@@ -39,16 +56,29 @@ public class Pala {
         return true;
     }
 
+    /**
+     * 
+     * @param solmu
+     */
     public void lisaasolmu(Solmu solmu) {
         solmut[solmujenmaara] = solmu;
         solmujenmaara++;
     }
 
+    /**
+     * 
+     * @param kaari
+     */
     public void lisaakaari(Kaari kaari) {
         kaaret[kaariluku] = kaari;
         kaariluku++;
     }
     
+    /**
+     * 
+     * @param toinenpala
+     * @param taulu
+     */
     public void yhdista(Pala toinenpala, Palahajautustaulu taulu) {
         Pala uusipala = new Pala(solmut[0], solmutaulukonpituus, kaaret.length);
         for (int i = 1; i < solmujenmaara; i++) {
@@ -68,6 +98,11 @@ public class Pala {
         taulu.insert(uusipala);
     }
 
+    /**
+     * 
+     * @param solmu
+     * @return
+     */
     public boolean contains(Solmu solmu) {
         for (int i = 0; i < solmut.length; i++) {
             if (solmut[i] == solmu) {

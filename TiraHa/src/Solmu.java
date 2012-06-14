@@ -92,6 +92,11 @@ public class Solmu implements Comparable {
         return parent;
     }
 
+    /**
+     * 
+     * @param o
+     * @return
+     */
     @Override
     public int compareTo(Object o) {
         assert (o instanceof Solmu);
@@ -103,6 +108,9 @@ public class Solmu implements Comparable {
             return 1;
         }
     }
+    /**
+     * 
+     */
     public void nollaaPrimlista() {
         primlista = new Hajautustaulu();
     }

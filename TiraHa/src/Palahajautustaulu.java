@@ -10,9 +10,17 @@
 public class Palahajautustaulu {
     Pala[] lista;
     
+    /**
+     * 
+     */
     public Palahajautustaulu(){
         lista = new Pala[11];
         }
+    /**
+     * 
+     * @param pala
+     * @return
+     */
     public boolean insert(Pala pala){
         int i = 0;
         int summa = pala.hashCode();
@@ -52,6 +60,11 @@ public class Palahajautustaulu {
             }
         }
     }
+    /**
+     * 
+     * @param pala
+     * @return
+     */
     public boolean delete(Pala pala){
             int summa = pala.hashCode();
             int i = 0;
@@ -67,6 +80,11 @@ public class Palahajautustaulu {
         }
         } 
     }
+    /**
+     * 
+     * @param pala
+     * @return
+     */
     public Pala getPala(Pala pala) {
         int summa = pala.hashCode();
         int i = 0;
