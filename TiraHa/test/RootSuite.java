@@ -15,7 +15,7 @@ import org.junit.runners.Suite;
  * @author Acer
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({PrimKruskalMainTest.class, PrimTest.class, SolmuTest.class, EkaluokkagittestTest.class})
+@Suite.SuiteClasses({AlgoritmitTest.class, KelloTest.class, SolmuTest.class, HajautusapuTest.class, HeapTest.class, PalaTest.class, PalahajautustauluTest.class, KaariTest.class, PrimKruskalMainTest.class, HajautustauluTest.class})
 public class RootSuite {
 
     @BeforeClass

@@ -39,7 +39,7 @@ public class Pala {
     }
 
     /**
-     * Tarkistaa, mikäli annettu pala on sama, kuin tämä pala.
+     * Tarkistaa, mikäli annettu pala on sama, kuin t1ämä pala.
      * @param toinenpala
      * @return
      */

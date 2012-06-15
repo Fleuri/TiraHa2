@@ -126,4 +126,16 @@ public class SolmuTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of nollaaPrimlista method, of class Solmu.
+     */
+    @Test
+    public void testNollaaPrimlista() {
+        System.out.println("nollaaPrimlista");
+        Solmu instance = null;
+        instance.nollaaPrimlista();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
 }

@@ -10,9 +10,9 @@ import static org.junit.Assert.*;
  *
  * @author Acer
  */
-public class EkaluokkagittestTest {
+public class KaariTest {
     
-    public EkaluokkagittestTest() {
+    public KaariTest() {
     }
 
     @BeforeClass

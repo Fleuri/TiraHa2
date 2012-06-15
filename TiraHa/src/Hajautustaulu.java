@@ -18,12 +18,15 @@ public class Hajautustaulu {
         }
     /**
      * Asettaa solmun listaan validille paikalle. Mikäli lista täyttyy, kutsuu
-     * pidennaLista -metodia.
+     * pidennaLista -metodia. Jos solmu löytyy jo listasta, korvaa sen.
      * @param solmu
      * @param pituus
      * @return
      */
     public boolean insert(Solmu solmu, int pituus){
+        if (contains(solmu)){
+            delete(solmu);
+        }
         int i = 0;
         int summa = solmu.hashCode();
         while (true) {
@@ -41,7 +44,7 @@ public class Hajautustaulu {
      * Siirtää vanhan taulukon tiedot uuteen.
      */
     private void pidennalista() {
-       int i = lista.length;
+       int i = lista.length + 1;
         while (true) {
             if (isPrime(i)) {
                 Hajautusapu[] lista2 = lista;

@@ -40,9 +40,9 @@ public class Palahajautustaulu {
      * Siirtää vanhan taulukon tiedot uuteen.
      */
     private void pidennalista() {
+        int i = lista.length + 1;
         while (true) {
-        int i = lista.length;
-            if (isPrime(i)) {
+        if (isPrime(i)) {
                 Pala[] lista2 = lista;
                 lista = new Pala[i];
                 for (int j = 0; j < lista2.length; j++) {
@@ -57,15 +57,14 @@ public class Palahajautustaulu {
 /*
  * Tarkistaa, että onko annettu luku alkuluku.
  */
-    private boolean isPrime(int i) {
-        while (true) {
+private static boolean isPrime(int i) {
             for (int j = 2; j < i; j++) {
-                if (i % j != 0) {
-                    return true;
+                if (i % j == 0) {
+                    return false;
                 }
             }
+            return true;
         }
-    }
     /**
      * Poistaa solmun taulukosta eli muuttaa isEmptyn trueksi.
      * @param pala
